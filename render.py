@@ -4,6 +4,22 @@ import torch
 import torch.nn as nn
 from network import Net
 import cmath
+import include.read_write_model as tools
+
+cameras = {}
+images = {}
+
+camerasDir = "./data/sparse/cameras.bin"
+imagesDir = "./data/sparse/images.bin"
+
+def LoadPose():
+    """
+    加载计算出的相机的
+    :return:
+    """
+    cameraInfo = tools.read_cameras_binary(camerasDir)
+    imagesInfo = tools.read_images_binary(imagesDir)
+
 
 def calPose(pose):
     """
